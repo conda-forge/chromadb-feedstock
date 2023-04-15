@@ -71,3 +71,5 @@ about:
 extra:
   recipe-maintainers:
     - sugatoray
+    # maintainers from upstream
+    - chroma-core
