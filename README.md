@@ -163,5 +163,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@chroma-core](https://github.com/chroma-core/)
 * [@sugatoray](https://github.com/sugatoray/)
 
