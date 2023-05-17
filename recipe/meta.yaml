@@ -27,7 +27,7 @@ requirements:
     - pydantic >=1.9
     - hnswlib >=0.7
     - clickhouse-connect >=0.5.7
-    - sentence-transformers >=2.2.2
+    # - sentence-transformers >=2.2.2
     - python-duckdb >=0.7.1
     - fastapi >=0.85.1
     - uvicorn >=0.18.3
