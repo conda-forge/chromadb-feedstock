@@ -1,5 +1,5 @@
 {% set name = "chromadb" %}
-{% set version = "0.3.21" %}
+{% set version = "0.3.25" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/chromadb-{{ version }}.tar.gz
-  sha256: 7b3417892666dc90df10eafae719ee189037c448c1c96e6c7964daa870483c3a
+  sha256: 78f35c65de7c21622dfc0fe02b6db6b59ba8f04fb8b8cd7b5e5f8f68f9806e8a
 
 build:
   number: 0
@@ -44,7 +44,7 @@ test:
 
 about:
   home: https://www.trychroma.com/
-  summary: "Chroma: The AI-native open-source embedding database"
+  summary: 'Chroma: The AI-native open-source embedding database'
   license: Apache-2.0
   license_file:
     - LICENSE
