@@ -18,12 +18,12 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
-    - python >=3.7
+    - python
     - setuptools >=61.0
     - setuptools-scm >=6.2
     - pip
   run:
-    - python >=3.7
+    - python
     - clickhouse-connect >=0.5.7
     - python-duckdb >=0.7.1
     - fastapi >=0.85.1
