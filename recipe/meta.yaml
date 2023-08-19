@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/chromadb-{{ version }}.tar.gz
-  sha256: a9b596d507f081993f2e32a7dcacabbbec2f6aebc2b6defe524442b07e265296
+  sha256: 817f8bb7915741703916e527556184ab2132f3caa8411307e2015cad7d1c7b03
 
 build:
   number: 0
