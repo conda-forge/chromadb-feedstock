@@ -27,6 +27,7 @@ requirements:
     - fastapi >=0.95.2,<0.100.0
     - graphlib-backport >=1.0.3  # [py<39]
     - chroma-hnswlib ==0.7.2
+    - importlib-resources
     - numpy >=1.21.6
     - onnxruntime >=1.14.1
     - overrides >=7.3.1
