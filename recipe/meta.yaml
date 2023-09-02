@@ -1,5 +1,5 @@
 {% set name = "chromadb" %}
-{% set version = "0.4.6" %}
+{% set version = "0.4.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/chromadb-{{ version }}.tar.gz
-  sha256: 817f8bb7915741703916e527556184ab2132f3caa8411307e2015cad7d1c7b03
+  sha256: 441f53ab474b684075de85e637ddcf691946a1dba06ea7b8859b914ab4cd9ea0
 
 build:
   number: 0
@@ -23,6 +23,7 @@ requirements:
     - setuptools-scm >=6.2
     - pip
   run:
+    - bcrypt >=4.0.1
     - python
     - fastapi >=0.95.2,<0.100.0
     - graphlib-backport >=1.0.3  # [py<39]
