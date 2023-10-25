@@ -1,5 +1,5 @@
 {% set name = "chromadb" %}
-{% set version = "0.4.14" %}
+{% set version = "0.4.15" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/chromadb-{{ version }}.tar.gz
-  sha256: 0fcef603bcf9c854305020c3f8d368c09b1545d48bd2bceefd51861090f87dad
+  sha256: fd28621f4e33b168a9d489efb4014c988781a8ca065598781d336b72821a92d6
 
 build:
   number: 0
@@ -23,6 +23,11 @@ requirements:
     - setuptools-scm >=6.2
     - pip
   run:
+    - opentelemetry-api >=1.2.0
+    - opentelemetry-exporter-otlp-proto-grpc >=1.2.0
+    - opentelemetry-sdk >=1.2.0
+    - python-kubernetes >=28.1.0
+    - tenacity >=8.2.3
     - grpcio >=1.58.0
     - typer >=0.9.0
     - bcrypt >=4.0.1
