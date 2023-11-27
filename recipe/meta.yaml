@@ -1,5 +1,5 @@
 {% set name = "chromadb" %}
-{% set version = "0.4.17" %}
+{% set version = "0.4.18" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/chromadb-{{ version }}.tar.gz
-  sha256: 120f9d364719b664d5314500f8e6097f0e0b24496bb97a429bc324f8d11f1b52
+  sha256: 42f1e8f3f48884abfb43fbbb132940d0b78c0f633baf888d2525c970678b886c
 
 build:
   number: 0
@@ -23,6 +23,8 @@ requirements:
     - setuptools-scm >=6.2
     - pip
   run:
+    - mmh3 >=4.0.1
+    - opentelemetry-instrumentation-fastapi >=0.41b0
     - pyyaml >=6.0.0
     - opentelemetry-api >=1.2.0
     - opentelemetry-exporter-otlp-proto-grpc >=1.2.0
