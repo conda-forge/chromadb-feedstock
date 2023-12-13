@@ -1,5 +1,5 @@
 {% set name = "chromadb" %}
-{% set version = "0.4.18" %}
+{% set version = "0.4.19" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/chromadb-{{ version }}.tar.gz
-  sha256: 42f1e8f3f48884abfb43fbbb132940d0b78c0f633baf888d2525c970678b886c
+  sha256: 378948be2c4c72a5fd38a2e77658b6685815b4a05aec996f27b4a11705e4781e
 
 build:
   number: 0
@@ -39,7 +39,7 @@ requirements:
     - graphlib-backport >=1.0.3  # [py<39]
     - chroma-hnswlib ==0.7.3
     - importlib-resources
-    - numpy >=1.21.6
+    - numpy >=1.22.5
     - onnxruntime >=1.14.1
     - overrides >=7.3.1
     - posthog >=2.4.0
