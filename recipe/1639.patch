@@ -1,0 +1,22 @@
+From 2845083249173cde3fe824102af48227ab840ec5 Mon Sep 17 00:00:00 2001
+From: "Uwe L. Korn" <xhochy@users.noreply.github.com>
+Date: Mon, 15 Jan 2024 20:12:13 +0100
+Subject: [PATCH] Remove `build` from package dependencies
+
+`build` was added in https://github.com/chroma-core/chroma/pull/1561 to fix the build of the client. This is a build-time dependency and should not be needed at runtime. Thus it should suffice to be in `requirements-dev.txt`.
+---
+ pyproject.toml | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 026267c089..cca89d5ef6 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -15,7 +15,6 @@ classifiers = [
+     "Operating System :: OS Independent",
+ ]
+ dependencies = [
+-  'build >= 1.0.3',
+   'requests >= 2.28',
+   'pydantic >= 1.9',
+   'chroma-hnswlib==0.7.3',

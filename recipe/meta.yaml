@@ -1,5 +1,5 @@
 {% set name = "chromadb" %}
-{% set version = "0.4.21" %}
+{% set version = "0.4.22" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/chromadb-{{ version }}.tar.gz
-  sha256: 7fa66c2908e2e1f04da90b97039f0aa7105ef4751041c3ddf73387ba5edef9df
+  sha256: c793149e1c2bbbb52d77602c6c0594c5752f04cd9be12619250ddad2082af27a
+  patches:
+    # Once the patch is merged, we can turn on automerge again
+    # https://github.com/chroma-core/chroma/pull/1639
+    - 1639.patch
 
 build:
   number: 0
