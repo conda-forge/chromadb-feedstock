@@ -1,5 +1,5 @@
 {% set name = "chromadb" %}
-{% set version = "0.4.22" %}
+{% set version = "0.4.23" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/chromadb-{{ version }}.tar.gz
-  sha256: c793149e1c2bbbb52d77602c6c0594c5752f04cd9be12619250ddad2082af27a
+  sha256: 54d9a770640704c6cedc15317faab9fd45beb9833e7484c00037e7a8801a349f
   patches:
     # Once the patch is merged, we can turn on automerge again
     # https://github.com/chroma-core/chroma/pull/1639
     - 1639.patch
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -27,6 +27,8 @@ requirements:
     - setuptools-scm >=6.2
     - pip
   run:
+    - orjson >=3.9.12
+    - python-build >=1.0.3
     - mmh3 >=4.0.1
     - opentelemetry-instrumentation-fastapi >=0.41b0
     - pyyaml >=6.0.0
