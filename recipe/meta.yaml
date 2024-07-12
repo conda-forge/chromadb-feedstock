@@ -1,5 +1,5 @@
 {% set name = "chromadb" %}
-{% set version = "0.5.3" %}
+{% set version = "0.5.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/chromadb-{{ version }}.tar.gz
-  sha256: 05d887f56a46b2e0fc6ac5ab979503a27b9ee50d5ca9e455f83b2fb9840cd026
-  patches:
-    # Once the patch is merged, we can turn on automerge again
-    # https://github.com/chroma-core/chroma/pull/1639
-    - 1639.patch
+  sha256: 02878f527befa8f80ab350023241dbb29313a168f93010208f071e3db9572bb4
 
 build:
   number: 0
@@ -44,7 +40,7 @@ requirements:
     - python
     - fastapi >=0.95.2
     - graphlib-backport >=1.0.3  # [py<39]
-    - chroma-hnswlib ==0.7.3
+    - chroma-hnswlib ==0.7.5
     - importlib-resources
     - numpy >=1.22.5,<2.0.0
     - onnxruntime >=1.14.1
