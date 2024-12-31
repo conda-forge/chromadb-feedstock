@@ -1,5 +1,5 @@
 {% set name = "chromadb" %}
-{% set version = "0.5.23" %}
+{% set version = "0.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/chromadb-{{ version }}.tar.gz
-  sha256: 360a12b9795c5a33cb1f839d14410ccbde662ef1accd36153b0ae22312edabd1
+  sha256: 8f72dc9bf0ed2c6358e46a80f31c39199cdcea39b0714e67b91f13acb64251ce
 
 build:
   number: 0
@@ -53,7 +53,7 @@ requirements:
     - pydantic >=1.9
     - pypika >=0.48.9
     - requests >=2.28
-    - tokenizers >=0.13.2,<=0.20.3
+    - tokenizers >=0.13.2
     - tqdm >=4.65.0
     - typing-extensions >=4.5.0
     - uvicorn-standard >=0.18.3
