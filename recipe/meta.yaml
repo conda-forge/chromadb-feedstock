@@ -1,5 +1,5 @@
 {% set name = "chromadb" %}
-{% set version = "0.6.0" %}
+{% set version = "0.6.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/chromadb-{{ version }}.tar.gz
-  sha256: 8f72dc9bf0ed2c6358e46a80f31c39199cdcea39b0714e67b91f13acb64251ce
+  sha256: af55d143fd887f344ff05cd40560566dda1dd13e90ec5a13fb0f5278eb8cde75
 
 build:
   number: 0
