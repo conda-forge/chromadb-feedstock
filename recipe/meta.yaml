@@ -1,5 +1,5 @@
 {% set name = "chromadb" %}
-{% set version = "0.6.3" %}
+{% set version = "1.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/chromadb-{{ version }}.tar.gz
-  sha256: c8f34c0b704b9108b04491480a36d42e894a960429f87c6516027b5481d59ed3
+  sha256: e6da3a0aab87e17b07cdb1704238865cdeb093706cbbacba02603df3c03a6c91
 
 build:
   noarch: python
-  number: 2
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -21,6 +21,7 @@ requirements:
     - setuptools-scm >=6.2
     - pip
   run:
+    - jsonschema >=4.19.0
     - typing_extensions >=4.5.0
     - uvicorn >=0.18.3
     - rich >=10.11.0
@@ -39,7 +40,7 @@ requirements:
     - typer >=0.9.0
     - bcrypt >=4.0.1
     - python >={{ python_min }}
-    - fastapi >=0.95.2
+    - fastapi ==0.115.9
     - chroma-hnswlib ==0.7.6
     - importlib-resources
     - numpy >=1.22.5
