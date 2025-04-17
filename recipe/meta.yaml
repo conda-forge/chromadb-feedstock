@@ -6,8 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/chromadb-{{ version }}.tar.gz
-  sha256: ee927adfe618e170320b6da25b39a01282142350de70b9b76ab98aa7af7d2f34
+  - url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/chromadb-{{ version }}.tar.gz
+    sha256: ee927adfe618e170320b6da25b39a01282142350de70b9b76ab98aa7af7d2f34
+  - url: https://raw.githubusercontent.com/chroma-core/chroma/refs/tags/{{ version }}/LICENSE
+    sha256: c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4
+    fn: LICENSE
 
 build:
   number: 0
@@ -81,7 +84,6 @@ about:
   license: Apache-2.0
   license_file:
     - LICENSE
-    - clients/js/LICENSE
     - THIRDPARTY.yml
   description: |
     Chroma is the open-source embedding database. Chroma makes it easy to build
