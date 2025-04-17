@@ -10,7 +10,6 @@ source:
   sha256: ee927adfe618e170320b6da25b39a01282142350de70b9b76ab98aa7af7d2f34
 
 build:
-  noarch: python
   number: 0
   script:
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
