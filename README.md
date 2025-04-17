@@ -16,18 +16,6 @@ Documentation: https://docs.trychroma.com/
 Chroma is the open-source embedding database. Chroma makes it easy to build
 LLM apps by making knowledge, facts, and skills pluggable for LLMs.
 
-![banner](https://docs.trychroma.com/img/hrm4.svg)
-
-PyPI: [https://pypi.org/project/chromadb](https://pypi.org/project/chromadb)
-
----
-
-:fire: The conda-forge recipe was generated with [Conda-Forger App](https://sugatoray-conda-forger.streamlit.app/).
-
-:point_right: [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://sugatoray-conda-forger.streamlit.app/)
-
-[_streamlit-conda-forger-app]: https://sugatoray-conda-forger.streamlit.app/
-
 
 Current build status
 ====================
