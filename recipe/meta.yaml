@@ -22,6 +22,7 @@ requirements:
   build:
     - {{ stdlib('c') }}
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - {{ compiler('rust') }}
     - cargo-bundle-licenses
     # Needed for protoc
