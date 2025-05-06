@@ -58,7 +58,6 @@ requirements:
     - bcrypt >=4.0.1
     - python
     - fastapi ==0.115.9
-    - chroma-hnswlib ==0.7.6
     - importlib-resources
     - numpy >=1.22.5
     - onnxruntime >=1.14.1
