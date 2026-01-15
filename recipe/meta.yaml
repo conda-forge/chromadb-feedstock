@@ -1,5 +1,5 @@
 {% set name = "chromadb" %}
-{% set version = "1.2.1" %}
+{% set version = "1.4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/chromadb-{{ version }}.tar.gz
-    sha256: 32b2edd2be641a7288def4ed0462363aecd59fd26675c605d08167f105194932
+    sha256: 3cceb83e0a7a3c2db0752ebf62e9cfe652da657594c093fe07e74022581a58eb
   - url: https://raw.githubusercontent.com/chroma-core/chroma/refs/tags/{{ version }}/LICENSE
     sha256: c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4
     fn: LICENSE
@@ -38,6 +38,7 @@ requirements:
     - setuptools-scm >=6.2
     - pip
   run:
+    - graphlib-backport >=1.0.3
     - pybase64 >=1.4.1
     - jsonschema >=4.19.0
     - typing_extensions >=4.5.0
