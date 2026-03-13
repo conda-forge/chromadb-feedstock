@@ -1,5 +1,5 @@
 {% set name = "chromadb" %}
-{% set version = "1.4.1" %}
+{% set version = "1.5.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/chromadb-{{ version }}.tar.gz
-    sha256: 3cceb83e0a7a3c2db0752ebf62e9cfe652da657594c093fe07e74022581a58eb
+    sha256: 8d669285b77cc288db27583a57b2f85ba451a9b8e3bef85a260cd78e6b57be35
   - url: https://raw.githubusercontent.com/chroma-core/chroma/refs/tags/{{ version }}/LICENSE
     sha256: c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4
     fn: LICENSE
@@ -38,6 +38,7 @@ requirements:
     - setuptools-scm >=6.2
     - pip
   run:
+    - pydantic-settings >=2.0
     - graphlib-backport >=1.0.3
     - pybase64 >=1.4.1
     - jsonschema >=4.19.0
@@ -66,7 +67,7 @@ requirements:
     - overrides >=7.3.1
     - posthog >=2.4.0,<6.0.0
     - pulsar-client >=3.1.0
-    - pydantic >=1.9
+    - pydantic >=2.0
     - pypika >=0.48.9
     - requests >=2.28
     - tokenizers >=0.13.2
