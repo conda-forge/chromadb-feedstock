@@ -1,5 +1,5 @@
 {% set name = "chromadb" %}
-{% set version = "1.5.5" %}
+{% set version = "1.5.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/chromadb-{{ version }}.tar.gz
-    sha256: 8d669285b77cc288db27583a57b2f85ba451a9b8e3bef85a260cd78e6b57be35
+    sha256: fff5ea5c93d3ec2058619db652715fdc521bbe5c7bac7cc26647bcb937f75c4c
     patches:
       - 0001-raise-chroma-segment-recursion-limit.patch
   - url: https://raw.githubusercontent.com/chroma-core/chroma/refs/tags/{{ version }}/LICENSE
