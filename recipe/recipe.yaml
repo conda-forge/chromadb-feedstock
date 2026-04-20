@@ -7,8 +7,8 @@ recipe:
   version: ${{ version }}
 
 source:
-  - url: https://github.com/chroma-core/chroma/archive/refs/tags/${{ version }}.tar.gz
-    sha256: ce0f1127da9b54c0c7be2b0bdf0d473ad2f5ecb1ef9c7db664411b8ab9f01831
+  - url: https://codeload.github.com/chroma-core/chroma/legacy.tar.gz/refs/tags/${{ version }}
+    sha256: 847656114253bca11bd5a6676d1ac7771a728fe9fd14900cd622c530892a4619
     patches:
       - 0001-raise-chroma-segment-recursion-limit.patch
   - url: https://raw.githubusercontent.com/chroma-core/chroma/refs/tags/${{ version }}/LICENSE
