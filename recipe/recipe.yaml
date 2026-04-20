@@ -7,8 +7,8 @@ recipe:
   version: ${{ version }}
 
 source:
-  - url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/chromadb-${{ version }}.tar.gz
-    sha256: 9f5dfaea989128793c4e1928de6a150d70ae55e44403d85448be94ff32f2c962
+  - url: https://github.com/chroma-core/chroma/archive/refs/tags/${{ version }}.tar.gz
+    sha256: ce0f1127da9b54c0c7be2b0bdf0d473ad2f5ecb1ef9c7db664411b8ab9f01831
     patches:
       - 0001-raise-chroma-segment-recursion-limit.patch
   - url: https://raw.githubusercontent.com/chroma-core/chroma/refs/tags/${{ version }}/LICENSE
