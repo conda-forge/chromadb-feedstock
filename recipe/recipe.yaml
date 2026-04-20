@@ -1,6 +1,6 @@
 context:
   name: chromadb
-  version: "1.5.7"
+  version: "1.1.1"
 
 package:
   name: ${{ name | lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/chromadb-${{ version }}.tar.gz
-    sha256: 9c4b01d164c088c42945795177fe6ec3a1447f0f23fdaaefff771cdc119e3d8e
+    sha256: ebfce0122753e306a76f1e291d4ddaebe5f01b5979b97ae0bc80b1d4024ff223
     patches:
       - 0001-raise-chroma-segment-recursion-limit.patch
   - url: https://raw.githubusercontent.com/chroma-core/chroma/refs/tags/${{ version }}/LICENSE
@@ -60,15 +60,12 @@ requirements:
     - orjson >=3.9.12
     - overrides >=7.3.1
     - posthog >=2.4.0,<6.0.0
-    - pulsar-client >=3.1.0
     - pybase64 >=1.4.1
     - pydantic >=2.0
-    - pydantic-settings >=2.0
     - pypika >=0.48.9
     - python-build >=1.0.3
     - python-kubernetes >=28.1.0
     - pyyaml >=6.0.0
-    - requests >=2.28
     - rich >=10.11.0
     - tenacity >=8.2.3
     - tokenizers >=0.13.2
