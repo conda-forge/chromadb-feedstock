@@ -3,6 +3,10 @@ About chromadb-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/chromadb-feedstock/blob/main/LICENSE.txt)
 
+
+About chromadb
+--------------
+
 Home: https://www.trychroma.com/
 
 Package license: Apache-2.0
@@ -15,6 +19,22 @@ Documentation: https://docs.trychroma.com/
 
 Chroma is the open-source embedding database. Chroma makes it easy to build
 LLM apps by making knowledge, facts, and skills pluggable for LLMs.
+
+About chromadb-client
+---------------------
+
+Home: https://www.trychroma.com/
+
+Package license: Apache-2.0
+
+Summary: Chroma Client: The thin Python HTTP client for Chroma
+
+Development: https://github.com/chroma-core/chroma
+
+Documentation: https://docs.trychroma.com/
+
+The thin Python HTTP client for Chroma. This package connects to a Chroma
+server and only sends HTTP requests.
 
 Current build status
 ====================
@@ -34,31 +54,10 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_python3.10.____cpython</td>
+              <td>linux_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=19169&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/chromadb-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_python3.11.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=19169&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/chromadb-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.11.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_python3.12.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=19169&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/chromadb-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.12.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_python3.13.____cp313</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=19169&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/chromadb-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.13.____cp313" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/chromadb-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -187,6 +186,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-chromadb-green.svg)](https://anaconda.org/conda-forge/chromadb) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/chromadb.svg)](https://anaconda.org/conda-forge/chromadb) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/chromadb.svg)](https://anaconda.org/conda-forge/chromadb) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/chromadb.svg)](https://anaconda.org/conda-forge/chromadb) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-chromadb--client-green.svg)](https://anaconda.org/conda-forge/chromadb-client) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/chromadb-client.svg)](https://anaconda.org/conda-forge/chromadb-client) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/chromadb-client.svg)](https://anaconda.org/conda-forge/chromadb-client) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/chromadb-client.svg)](https://anaconda.org/conda-forge/chromadb-client) |
 
 Installing chromadb
 ===================
@@ -198,16 +198,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `chromadb` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `chromadb, chromadb-client` can be installed with `conda`:
 
 ```
-conda install chromadb
+conda install chromadb chromadb-client
 ```
 
 or with `mamba`:
 
 ```
-mamba install chromadb
+mamba install chromadb chromadb-client
 ```
 
 It is possible to list all of the versions of `chromadb` available on your platform with `conda`:

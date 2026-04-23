@@ -1,14 +1,14 @@
 context:
   name: chromadb
-  version: "1.5.7"
+  version: "1.5.8"
 
-package:
+recipe:
   name: ${{ name | lower }}
   version: ${{ version }}
 
 source:
-  - url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/chromadb-${{ version }}.tar.gz
-    sha256: 9c4b01d164c088c42945795177fe6ec3a1447f0f23fdaaefff771cdc119e3d8e
+  - url: https://codeload.github.com/chroma-core/chroma/legacy.tar.gz/refs/tags/${{ version }}
+    sha256: 847656114253bca11bd5a6676d1ac7771a728fe9fd14900cd622c530892a4619
     patches:
       - 0001-raise-chroma-segment-recursion-limit.patch
   - url: https://raw.githubusercontent.com/chroma-core/chroma/refs/tags/${{ version }}/LICENSE
@@ -17,76 +17,147 @@ source:
 
 build:
   number: 0
-  script:
-    - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
-    - ${{ PYTHON }} -m pip install . -vv
 
-requirements:
-  build:
-    - ${{ compiler('c') }}
-    - ${{ compiler('cxx') }}
-    - ${{ compiler('rust') }}
-    - ${{ stdlib('c') }}
-    - cargo-bundle-licenses
-    - libprotobuf
-    - make
-    - if: build_platform != target_platform
-      then:
+outputs:
+  - package:
+      name: ${{ name | lower }}
+    build:
+      number: 0
+      script:
+        - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
+        - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ compiler('cxx') }}
+        - ${{ compiler('rust') }}
+        - ${{ stdlib('c') }}
+        - cargo-bundle-licenses
+        - libprotobuf
+        - make
+        - if: build_platform != target_platform
+          then:
+            - python
+            - cross-python_${{ target_platform }}
+            - maturin >=1.0,<2.0
+      host:
         - python
-        - cross-python_${{ target_platform }}
         - maturin >=1.0,<2.0
-  host:
-    - python
-    - maturin >=1.0,<2.0
-    - setuptools >=61.0
-    - setuptools-scm >=6.2
-    - pip
-  run:
-    - python
-    - bcrypt >=4.0.1
-    - fastapi ==0.115.9
-    - graphlib-backport >=1.0.3
-    - grpcio >=1.58.0
-    - httpx >=0.27.0
-    - importlib-resources
-    - jsonschema >=4.19.0
-    - mmh3 >=4.0.1
-    - numpy >=1.22.5
-    - onnxruntime >=1.14.1
-    - opentelemetry-api >=1.2.0
-    - opentelemetry-exporter-otlp-proto-grpc >=1.2.0
-    - opentelemetry-instrumentation-fastapi >=0.41b0
-    - opentelemetry-sdk >=1.2.0
-    - orjson >=3.9.12
-    - overrides >=7.3.1
-    - posthog >=2.4.0,<6.0.0
-    - pulsar-client >=3.1.0
-    - pybase64 >=1.4.1
-    - pydantic >=2.0
-    - pydantic-settings >=2.0
-    - pypika >=0.48.9
-    - python-build >=1.0.3
-    - python-kubernetes >=28.1.0
-    - pyyaml >=6.0.0
-    - requests >=2.28
-    - rich >=10.11.0
-    - tenacity >=8.2.3
-    - tokenizers >=0.13.2
-    - tqdm >=4.65.0
-    - typer >=0.9.0
-    - typing_extensions >=4.5.0
-    - uvicorn >=0.18.3
-    - uvicorn-standard >=0.18.3
-
-tests:
-  - python:
-      imports:
-        - chromadb
-  - requirements:
-      run:
+        - setuptools >=61.0
+        - setuptools-scm >=6.2
         - pip
-    script:
-      - pip check
+      run:
+        - python
+        - bcrypt >=4.0.1
+        - fastapi ==0.115.9
+        - graphlib-backport >=1.0.3
+        - grpcio >=1.58.0
+        - httpx >=0.27.0
+        - importlib-resources
+        - jsonschema >=4.19.0
+        - mmh3 >=4.0.1
+        - numpy >=1.22.5
+        - onnxruntime >=1.14.1
+        - opentelemetry-api >=1.2.0
+        - opentelemetry-exporter-otlp-proto-grpc >=1.2.0
+        - opentelemetry-instrumentation-fastapi >=0.41b0
+        - opentelemetry-sdk >=1.2.0
+        - orjson >=3.9.12
+        - overrides >=7.3.1
+        - posthog >=2.4.0,<6.0.0
+        - pulsar-client >=3.1.0
+        - pybase64 >=1.4.1
+        - pydantic >=2.0
+        - pydantic-settings >=2.0
+        - pypika >=0.48.9
+        - python-build >=1.0.3
+        - python-kubernetes >=28.1.0
+        - pyyaml >=6.0.0
+        - requests >=2.28
+        - rich >=10.11.0
+        - tenacity >=8.2.3
+        - tokenizers >=0.13.2
+        - tqdm >=4.65.0
+        - typer >=0.9.0
+        - typing_extensions >=4.5.0
+        - uvicorn >=0.18.3
+        - uvicorn-standard >=0.18.3
+      run_constraints:
+        - chromadb-client <0a0
+    tests:
+      - python:
+          imports:
+            - chromadb
+          pip_check: true
+    about:
+      homepage: https://www.trychroma.com/
+      summary: "Chroma: The AI-native open-source embedding database"
+      license: Apache-2.0
+      license_file:
+        - LICENSE
+        - THIRDPARTY.yml
+      description: |
+        Chroma is the open-source embedding database. Chroma makes it easy to build
+        LLM apps by making knowledge, facts, and skills pluggable for LLMs.
+      repository: https://github.com/chroma-core/chroma
+      documentation: https://docs.trychroma.com/
+
+  - package:
+      name: chromadb-client
+      version: ${{ version }}
+    build:
+      number: 0
+      noarch: python
+      script:
+        - mv pyproject.toml pyproject.toml.orig
+        - cp clients/python/pyproject.toml pyproject.toml
+        - mv README.md README.md.orig
+        - cp clients/python/README.md README.md
+        - cp clients/python/is_thin_client.py chromadb/is_thin_client.py
+        - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+        - pip
+        - setuptools >=61.0
+        - setuptools-scm >=6.2
+      run:
+        - python >=${{ python_min }}
+        - httpx >=0.27.0
+        - jsonschema >=4.19.0
+        - numpy >=1.22.5
+        - opentelemetry-api >=1.2.0
+        - opentelemetry-exporter-otlp-proto-grpc >=1.2.0
+        - opentelemetry-sdk >=1.2.0
+        - orjson >=3.9.12
+        - overrides >=7.3.1
+        - pybase64 >=1.4.1
+        - pydantic >=2.0
+        - pydantic-settings >=2.0
+        - pyyaml >=6.0.0
+        - tenacity >=8.2.3
+        - typing_extensions >=4.5.0
+    tests:
+      - python:
+          imports:
+            - chromadb
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
+      - script:
+          - python -c "import chromadb; assert chromadb.is_client"
+    about:
+      homepage: https://www.trychroma.com/
+      summary: "Chroma Client: The thin Python HTTP client for Chroma"
+      license: Apache-2.0
+      license_file:
+        - LICENSE
+      description: |
+        The thin Python HTTP client for Chroma. This package connects to a Chroma
+        server and only sends HTTP requests.
+      repository: https://github.com/chroma-core/chroma
+      documentation: https://docs.trychroma.com/
 
 about:
   homepage: https://www.trychroma.com/
@@ -94,12 +165,6 @@ about:
   license: Apache-2.0
   license_file:
     - LICENSE
-    - THIRDPARTY.yml
-  description: |
-    Chroma is the open-source embedding database. Chroma makes it easy to build
-    LLM apps by making knowledge, facts, and skills pluggable for LLMs.
-  repository: https://github.com/chroma-core/chroma
-  documentation: https://docs.trychroma.com/
 
 extra:
   recipe-maintainers:
