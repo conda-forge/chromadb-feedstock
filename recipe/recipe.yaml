@@ -16,7 +16,7 @@ source:
     file_name: LICENSE
 
 build:
-  number: 0
+  number: 1
   script:
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
     - ${{ PYTHON }} -m pip install . -vv
@@ -44,7 +44,7 @@ requirements:
   run:
     - python
     - bcrypt >=4.0.1
-    - fastapi ==0.115.9
+    - fastapi >=0.115.9
     - graphlib-backport >=1.0.3
     - grpcio >=1.58.0
     - httpx >=0.27.0
